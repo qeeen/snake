@@ -19,7 +19,7 @@ function setup(){
 
 	fruit_pos = [5, 15];
 
-	curkey = '';
+	curkey = 'a';
 }
 
 function draw(){
