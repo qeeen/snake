@@ -3,6 +3,7 @@ var curkey;
 var snake;
 var snake_word;
 var dir;
+var known_dir;
 var fruit_pos;
 var mode;
 var score;
@@ -20,6 +21,7 @@ function setup(){
 	snake.push([0, 0]);
 	snake_word = 'a';
 	dir = 0;
+	known_dir = 0;
 
 	fruit_pos = [floor(random(0, 32)), floor(random(0, 20))];
 	score = 0;
@@ -60,6 +62,7 @@ function draw(){
 					snake.push([head[0], head[1]-1]);
 					break;
 			}
+			known_dir = dir;
 			if(head[0] == fruit_pos[0] && head[1] == fruit_pos[1]){
 				let found = true;
 				while(found){
@@ -111,13 +114,13 @@ function draw(){
 
 function keyPressed(){
 	if(mode == "game"){
-		if(keyCode === LEFT_ARROW && dir != 0)
+		if(keyCode === LEFT_ARROW && known_dir != 0)
 			dir = 2;
-		if(keyCode === RIGHT_ARROW && dir != 2)
+		if(keyCode === RIGHT_ARROW && known_dir != 2)
 			dir = 0;
-		if(keyCode === UP_ARROW && dir != 1)
+		if(keyCode === UP_ARROW && known_dir != 1)
 			dir = 3;
-		if(keyCode === DOWN_ARROW && dir != 3)
+		if(keyCode === DOWN_ARROW && known_dir != 3)
 			dir = 1;
 	}
 }
