@@ -43,7 +43,7 @@ function draw(){
 					break;
 				}
 			}
-			if(head[0] < 0 || head[0] > 32 || head[1] < 0 || head[1] > 20){
+			if(head[0] < 0 || head[0] > 31 || head[1] < 0 || head[1] > 19){
 				mode = "loss";
 			}
 			switch(dir){
